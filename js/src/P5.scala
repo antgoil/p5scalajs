@@ -7,6 +7,7 @@ import scala.scalajs.js.annotation.JSGlobal
 trait Sketch extends js.Object {
   var setup: js.Function0[Unit]
   var draw: js.Function0[Unit]
+  var mouseClicked: js.Function0[Unit]
   var CENTER: String = js.native
   var HALF_PI: js.Any = js.native
   var PI: js.Any = js.native
