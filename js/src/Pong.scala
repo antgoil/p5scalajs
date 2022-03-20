@@ -20,8 +20,8 @@ class Pong() extends js.Object {
 
     var brickHeight = 100
     var brickWidth = 15
-    var brickX = 100
-    var brickY = 0
+    var brickX = 100.0
+    var brickY = 0.0
     var brickBounceX = brickX + brickWidth + ballRadi
 
     var gameMode = 0
@@ -72,17 +72,13 @@ class Pong() extends js.Object {
       }
 
     def drawGameScreen() = {
-      if (mouseY < 100) {
+      if (mouseY < 0) {
         brickY = 0
-      }
-      else if (mouseY < 200) {
-        brickY = 100
-      }
-      else if (mouseY < 300) {
-        brickY = 200
       }
       else if (mouseY >= 300) {
         brickY = 300
+      }else {
+        brickY = mouseY
       }
       
       rect(brickX, brickY, brickWidth, brickHeight);
