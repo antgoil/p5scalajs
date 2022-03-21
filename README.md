@@ -6,6 +6,10 @@ in [Scala.js](https://www.scala-js.org).
 
 ## Setup
 - Requires initial `npm install` in `vuegui` folder
-- Develop with `mill -w server.runBackround` (todo add develop mode that does not rebuild vue on each save)
+- Develop with `mill -w server.runBackground` (todo add develop mode that does not rebuild vue on each save)
+
+## Links
+- p5js reference https://p5js.org/reference/ (note that only few things are in the [facade](js/src/P5.scala) today and needs to be added when required)
+- [scalajs](https://www.scala-js.org)
 
 

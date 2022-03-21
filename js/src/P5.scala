@@ -17,8 +17,15 @@ trait Sketch extends js.Object {
   var mouseX: Double = js.native
   var mouseY: Double = js.native
   var pixels: js.Array[Int] = js.native
-  def map(value: Double, start1: Double, stop1: Double, start2: Double, stop2: Double): Double = js.native
+  def map(
+      value: Double,
+      start1: Double,
+      stop1: Double,
+      start2: Double,
+      stop2: Double
+  ): Double = js.native
   def translate(x: Double, y: Double): js.Any = js.native
+  def dist(x1: Double, y1: Double, x2: Double, y2: Double): Double = js.native
   def pixelDensity(d: Double): js.Any = js.native
   def loadPixels(): js.Any = js.native
   def updatePixels(): js.Any = js.native
@@ -69,18 +76,21 @@ trait Sketch extends js.Object {
 @js.native
 @JSGlobal("p5.Vector")
 class P5Vector(val x: Double, val y: Double, val z: Double = 0)
-    extends js.Object {}
+    extends js.Object {
+  def dist(other: P5Vector): Double = js.native
+  def angleBetween(other: P5Vector): Double = js.native
+}
 
 object P5VectorExt {
   extension (v: P5Vector)
     def +(other: P5Vector) =
       new P5Vector(other.x + v.x, other.y + v.y, other.z + v.z)
-
-    def matmul(other: P5Vector) = ???
     def negX() =
       new P5Vector(v.x * -1, v.y, v.z)
     def negY() =
       new P5Vector(v.x, v.y * -1, v.z)
+    def negXY() =
+      new P5Vector(v.x * -1, v.y * -1, v.z)
 }
 
 @js.native
